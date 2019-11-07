@@ -12,10 +12,14 @@ jobs:
         uses: actions/checkout@v1
         
       - name: Prepare Env
-        run: dotnet tool install --global dotnet-sonarscanner --version 4.8.0
+        run: |
+          choco install  -y wget unzip
+          wget "https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/4.7.1.2311/sonar-scanner-msbuild-4.7.1.2311-net46.zip"
+          unzip sonar-scanner-msbuild-4.7.1.2311-net46.zip
         
       - name: Anayze
         run: |
-            dotnet sonarscanner begin /k:"kotauchisunsun_VirtualMotionCapture" /o:"kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
+            Set-Item Env:Path "$Env:Path;$Pwd\sonar-scanner-msbuild-4.7.1.2311-net46"
+            SonarScanner.MSBuild.exe  begin /k:"kotauchisunsun_VirtualMotionCapture" /o:"kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
             &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"  ControlWindowWPF\ControlWindowWPF.sln
-            dotnet sonarscanner end /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
+            SonarScanner.MSBuild.exe  end /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
