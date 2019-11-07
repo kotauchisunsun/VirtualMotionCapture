@@ -16,6 +16,6 @@ jobs:
         
       - name: Anayze
         run: |
-            SonarQube.Scanner.MSBuild.exe begin /k:"org.sonarqube:sonarqube-scanner-msbuild" /n:"VirtualMotionCapture Analysis" /v:"1.0"
+            SonarQube.Scanner.MSBuild.exe begin /k:"kotauchisunsun_VirtualMotionCapture"
             MSBuild.exe ControlWindowWPF\ControlWindowWPF.sln
             SonarQube.Scanner.MSBuild.exe end
