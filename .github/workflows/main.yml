@@ -19,7 +19,7 @@ jobs:
       - name: Analyze by SonarScanner
         run: |
             ./sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner \
-            -Dsonar.projectKey=kotauchisunsun_ts-express \
+            -Dsonar.projectKey=kotauchisunsun_VirtualMotionCapture \
             -Dsonar.organization=kotauchisunsun-github \
             -Dsonar.sources=. \
             -Dsonar.exclusions=sonar-scanner-3.3.0.1492-linux/** \
