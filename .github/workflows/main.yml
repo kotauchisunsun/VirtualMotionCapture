@@ -6,6 +6,7 @@ jobs:
   build:
 
     runs-on: windows-latest
+    env: PASSWORD=${{ secrets.SONAR_CLOUD_TOKEN }}
 
     steps:
       - name: Checkout SourceCode
@@ -16,6 +17,6 @@ jobs:
         
       - name: Anayze
         run: |
-            dotnet sonarscanner begin /k:"kotauchisunsun_VirtualMotionCapture"
+            dotnet sonarscanner begin /k:"kotauchisunsun_VirtualMotionCapture" /d:"sonar.organization=kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io"
             dotnet build ControlWindowWPF\ControlWindowWPF.sln
-            dotnet sonarscanner end 
+            dotnet sonarscanner end /d:"sonar.organization=kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io"
