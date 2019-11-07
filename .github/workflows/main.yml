@@ -16,6 +16,6 @@ jobs:
         
       - name: Anayze
         run: |
-            SonarScanner.MSBuild.exe begin /k:"kotauchisunsun_VirtualMotionCapture" /o:"kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
+            dotnet sonarscanner begin /k:"kotauchisunsun_VirtualMotionCapture" /o:"kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
             MSBuild.exe ControlWindowWPF\ControlWindowWPF.sln
-            SonarScanner.MSBuild.exe end /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
+            dotnet sonarscanner end /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
