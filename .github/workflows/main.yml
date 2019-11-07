@@ -38,5 +38,5 @@ jobs:
             dotnet sonarscanner /?
             dotnet sonarscanner begin /k:"kotauchisunsun_VirtualMotionCapture" /o:"kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}" /d:"sonar.verbose=true"
             &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"  ControlWindowWPF\ControlWindowWPF.sln /t:Rebuild
-            dotnet sonarscanner end /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}" /d:"sonar.verbose=true"
+            dotnet sonarscanner end /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
             
