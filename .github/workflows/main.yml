@@ -6,7 +6,6 @@ jobs:
   build:
 
     runs-on: windows-latest
-    env: PASSWORD=${{ secrets.SONAR_CLOUD_TOKEN }}
 
     steps:
       - name: Checkout SourceCode
