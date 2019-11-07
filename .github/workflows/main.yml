@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout SourceCode
         uses: actions/checkout@v1
+      
+      - name: check
+        run:  MSBuild.exe
         
       - name: Prepare Env
         run: dotnet tool install --global dotnet-sonarscanner --version 4.8.0
