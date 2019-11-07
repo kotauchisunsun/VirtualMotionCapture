@@ -19,7 +19,7 @@ jobs:
         
       - name: Anayze
         run: |
-            Set-Item Env:Path "$Env:Path;$Pwd\sonar-scanner-msbuild-4.7.1.2311-net46"
+            Set-Item Env:Path "$Env:Path;$Pwd\sonar-scanner-4.1.0.1829/bin/"
             SonarScanner.MSBuild.exe  begin /k:"kotauchisunsun_VirtualMotionCapture" /o:"kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
             &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"  ControlWindowWPF\ControlWindowWPF.sln
             SonarScanner.MSBuild.exe  end /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
