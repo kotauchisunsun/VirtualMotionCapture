@@ -17,5 +17,5 @@ jobs:
       - name: Anayze
         run: |
             dotnet sonarscanner begin /k:"kotauchisunsun_VirtualMotionCapture" /o:"kotauchisunsun-github" /d:"sonar.host.url=https://sonarcloud.io" /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
-            dotnet build .
+            dotnet build ControlWindowWPF\ControlWindowWPF.sln
             dotnet sonarscanner end /d:"sonar.login=${{ secrets.SONAR_CLOUD_TOKEN }}"
