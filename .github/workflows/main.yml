@@ -1,4 +1,4 @@
-name: CI
+name: VMC CI/CD Pipeline
 
 on: [push]
 
@@ -8,10 +8,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      - name: Checkout SourceCode
+      - uses: actions/checkout@v1
+
+      - name: Download SonarScanner
+      - run:
+            wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+            unzip sonar-scanner-cli-3.3.0.1492-linux.zip
+            
+      - name: Analyze by SonarScanner
+        run: |
+            ./sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner \
+            -Dsonar.projectKey=kotauchisunsun_ts-express \
+            -Dsonar.organization=kotauchisunsun-github \
+            -Dsonar.sources=. \
+            -Dsonar.exclusions=sonar-scanner-3.3.0.1492-linux/** \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.projectVersion=${GITHUB_REF} \
+            -Dsonar.login=${SONAR_CLOUD_TOKEN}
