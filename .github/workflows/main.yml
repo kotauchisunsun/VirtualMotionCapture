@@ -13,7 +13,7 @@ jobs:
       
       - name: check
         run:  |
-          "${env:ProgramFiles(x86)}"'\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe' /?
+          &"${env:ProgramFiles(x86)}\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" /?
         
       - name: Prepare Env
         run: dotnet tool install --global dotnet-sonarscanner --version 4.8.0
