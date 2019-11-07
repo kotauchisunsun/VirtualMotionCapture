@@ -11,5 +11,8 @@ jobs:
       - name: Checkout SourceCode
         uses: actions/checkout@v1
         
+      - name: Prepare Env
+        run: dotnet tool install --global dotnet-sonarscanner --version 4.8.0
+        
       - name: Test MSBuild.exe
         run: MSBuild.exe
