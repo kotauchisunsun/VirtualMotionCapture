@@ -1,4 +1,7 @@
 # バーチャルモーションキャプチャー (VirtualMotionCapture)  
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/be8c4a1ed7f54788b0246d5f3c02d9e8)](https://www.codacy.com/manual/kotauchisunsun/VirtualMotionCapture?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kotauchisunsun/VirtualMotionCapture&amp;utm_campaign=Badge_Grade)
+
 VRゲーム中にモデルをコントロール  
   
 VRMのモデルファイルを読み込んで、3点～10点フルトラッキングで操作するアプリです。  
